@@ -57,6 +57,17 @@ module PDNS
     end
 
     ##
+    # Searches data
+    #
+    # @param search_term [String] terms to search for.
+    # @param max [String] terms to search for.
+    # @return [Hash] result of the search.
+    #
+    def search_data(search_term, max = 0)
+      @http.get("#{@url}/search-data?q=#{search_term}")
+    end
+
+    ##
     # Searches through the server's log with +search_term+.
     #
     # @param search_term [String] terms to search for.
