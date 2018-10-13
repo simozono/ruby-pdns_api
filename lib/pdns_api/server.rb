@@ -64,7 +64,10 @@ module PDNS
     # @return [Hash] result of the search.
     #
     def search_data(search_term, max = 0)
-      @http.get("#{@url}/search-data?q=#{search_term}")
+      limits = ''
+      limits = "&max=#{max}" unless max.zero?
+
+      @http.get("#{@url}/search-data?q=#{search_term}#{limits}")
     end
 
     ##
